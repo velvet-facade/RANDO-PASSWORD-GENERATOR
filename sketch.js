@@ -81,6 +81,7 @@ copyEl.addEventListener("click", () => {
   document.body.appendChild(textarea);
   textarea.select();
   navigator.clipboard.writeText(password);
+  console.log(password)
   textarea.remove();
   alert("Password copied to clipboard: " + password);
 });
