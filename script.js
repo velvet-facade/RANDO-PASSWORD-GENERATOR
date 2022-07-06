@@ -72,7 +72,15 @@ function generateX() {
 generateEl.addEventListener("click", generatePw);
 
 copyEl.addEventListener("click", () => {
-  password.select();
-  navigator.clipboard.writeText(password.value);
-  alert("Password copied to clipboard" + password);
+  const textarea = document.createElement("textarea");
+  const password = pwEl.innerText;
+  if (!password) {
+    return;
+  }
+  textarea.value = password;
+  document.body.appendChild(textarea);
+  textarea.select();
+  navigator.clipboard.writeText(password);
+  textarea.remove();
+  alert("Password copied to clipboard: " + password);
 });
